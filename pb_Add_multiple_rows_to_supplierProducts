@@ -18,7 +18,7 @@ GO
 -- Create date: 17/08/2018
 -- Description:	<Description,,>
 -- =============================================
-CREATE PROCEDURE pb_Add_multiple_rows_to_supplierCategories 
+CREATE PROCEDURE pb_Add_multiple_rows_to_supplierProducts 
 	-- Add the parameters for the stored procedure here
 	--<@Param1, sysname, @p1> <Datatype_For_Param1, , int> = <Default_Value_For_Param1, , 0>, 
 	--<@Param2, sysname, @p2> <Datatype_For_Param2, , int> = <Default_Value_For_Param2, , 0>
@@ -40,6 +40,6 @@ BEGIN
 END;
 
 
-EXECUTE  pb_Add_multiple_rows_to_supplierCategories;
+EXECUTE  pb_Add_multiple_rows_to_supplierProducts;
 
 GO
