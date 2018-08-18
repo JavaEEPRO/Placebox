@@ -1,0 +1,58 @@
+-- ================================================
+-- Template generated from Template Explorer using:
+-- Create Procedure (New Menu).SQL
+--
+-- Use the Specify Values for Template Parameters 
+-- command (Ctrl-Shift-M) to fill in the parameter 
+-- values below.
+--
+-- This block of comments will not be included in
+-- the definition of the procedure.
+-- ================================================
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+-- =============================================
+-- Author:		Shtoda V
+-- Create date: 18/08/2018
+-- Description:	<Description,,>
+-- =============================================
+CREATE PROCEDURE pb_Add_multiple_rows_to_suppliers 
+	-- Add the parameters for the stored procedure here
+	--<@Param1, sysname, @p1> <Datatype_For_Param1, , int> = <Default_Value_For_Param1, , 0>, 
+	--<@Param2, sysname, @p2> <Datatype_For_Param2, , int> = <Default_Value_For_Param2, , 0>
+AS
+BEGIN
+	-- SET NOCOUNT ON added to prevent extra result sets from
+	-- interfering with SELECT statements.
+	--SET NOCOUNT ON;
+
+	DECLARE @counter int = 1;
+	DECLARE @var1 int = 10;
+	DECLARE @var2 nvarchar(20) = '';
+
+	WHILE @counter < 300
+		BEGIN
+			--@var1 = random() * 9 + 1;
+			IF @var1 % 2 = 0
+				 BEGIN
+					SET @var2 = 'sports equipment'
+				 END
+		    ELSE 
+				 BEGIN
+					SET @var2 = 'foods'
+				 END
+
+						
+			INSERT INTO [Placebox].[dbo].[pb_suppliers] ([name], [desc], [isApproved], [approvedDate], [isBlocked], [blockedDate], [rating], [mainPhotoID], [geoID], [phone], [email], [person], [address], [userID], [genderID])
+			VALUES ('test supplier for ' + @var2, 'any ' + @var2 + ' supply 24/7', NULL, NULL, NULL, NULL,  10, 21, 2, '2-' + CAST(@counter AS nvarchar(4)) + '-' + CAST(@counter AS nvarchar(4)) + '-22', @var2 + '@mail.mail', 'someone from somewhere', 'living among the clouds and arks', 1, 1);
+									
+			SET @counter += 1;
+	    END    
+END;
+
+
+EXECUTE  pb_Add_multiple_rows_to_suppliers;
+
+GO
