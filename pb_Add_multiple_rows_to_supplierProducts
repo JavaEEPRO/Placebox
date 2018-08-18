@@ -28,12 +28,15 @@ BEGIN
 	-- interfering with SELECT statements.
 	--SET NOCOUNT ON;
 
-	DECLARE @counter int = 1006;
+	DECLARE @counter int = 1003;
 
 	WHILE @counter < 1999
 		BEGIN
+
+			
+
 			INSERT INTO [Placebox].[dbo].[pb_supplierProducts] ([productID], [supplierID], [price], [descFromSupplier])
-			VALUES (@counter, 1, @counter-1000, 'water for cooking and drinking 1l' + CAST(@counter AS nvarchar(5)));
+			VALUES (@counter, 1092, @counter-1000, 'water for cooking and drinking 1l' + CAST(@counter AS nvarchar(5)));
 						
 			SET @counter += 1;
 	    END;    
