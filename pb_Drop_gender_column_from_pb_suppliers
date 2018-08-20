@@ -1,0 +1,7 @@
+USE [Placebox]
+GO
+
+/****** Object:  Table [dbo].[pb_suppliers]    Script Date: 20.08.2018 12:31:21 ******/
+ALTER TABLE [dbo].[pb_suppliers] DROP COLUMN genderID; 
+GO
+
